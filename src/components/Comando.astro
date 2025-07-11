@@ -1,0 +1,15 @@
+---
+const {
+    titulo = "/algo",
+    descripcion = "Hace algo...",
+    ejemplo = "/algo...",
+} = Astro.props;
+---
+
+<div class="bg-gray-800 rounded-2xl w-3/5">
+    <p class="mt-2 mb-2 ml-4 mr-4 px-2 font-bold">{titulo}</p>
+    <p class="mt-2 mb-2 ml-4 mr-4 px-2">{descripcion}</p>
+    <p class="mt-2 mb-3 ml-4 mr-4 px-2 text-sm">
+        Uso: <span class="text-violet-400">{ejemplo}</span>
+    </p>
+</div>
