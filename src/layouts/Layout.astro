@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+const { titulo = "Web | RitmosWeb" } = Astro.props;
 ---
 
 <!doctype html>
@@ -8,8 +9,8 @@ import "../styles/global.css";
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="canonical" href="https://ritmosweb.vercel.app/" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<title>Inicio | RitmosWeb</title>
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<title>{titulo}</title>
 	</head>
 	<body>
 		<slot />
