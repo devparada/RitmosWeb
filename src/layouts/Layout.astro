@@ -1,29 +1,31 @@
 ---
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 const { titulo = "Web | RitmosWeb" } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="es">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="canonical" href="https://ritmosweb.vercel.app/" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
-		<title>{titulo}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href="https://ritmosweb.vercel.app/" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{titulo}</title>
+  </head>
+  <body>
+    <slot />
+    <Footer />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-		background-color: black;
-		color: white;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: white;
+  }
 </style>
