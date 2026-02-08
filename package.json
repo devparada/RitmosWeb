@@ -1,17 +1,20 @@
 {
   "name": "ritmosweb",
-  "type": "module",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
+    "astro": "astro",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "astro dev",
+    "preview": "astro preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "4.1.18",
     "astro": "5.17.1",
     "tailwindcss": "4.1.18"
+  },
+  "devDependencies": {
+    "@astrojs/sitemap": "3.7.0"
   }
 }
