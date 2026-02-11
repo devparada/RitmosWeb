@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://ritmosweb.devparada.dev/sitemap-index.xml
