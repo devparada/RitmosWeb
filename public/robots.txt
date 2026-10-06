@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://ritmosweb.devparada.dev/sitemap-index.xml
+Sitemap: https://ritmos.devparada.dev/sitemap-index.xml

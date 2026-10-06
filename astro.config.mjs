@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   trailingSlash: 'never',
-  site: 'https://ritmosweb.devparada.dev/',
+  site: 'https://ritmos.devparada.dev/',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]
