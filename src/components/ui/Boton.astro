@@ -1,0 +1,45 @@
+---
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary';
+  class?: string;
+  target?: string;
+  ariaLabel?: string;
+}
+
+const { 
+  href, 
+  variant = 'primary', 
+  class: className = '', 
+  target,
+  ariaLabel 
+} = Astro.props;
+
+const baseStyles = "inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg transition-[background-color,border-color,box-shadow] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950";
+
+const variants = {
+  primary: "bg-violet-600 hover:bg-violet-500 text-white shadow-[0_0_20px_rgba(139,92,246,0.25)] focus-visible:ring-violet-400",
+  secondary: "bg-gray-900 border border-gray-700 hover:border-gray-500 hover:bg-gray-800 text-white focus-visible:ring-violet-500"
+};
+
+const combinedClasses = `${baseStyles} ${variants[variant]} ${className}`;
+---
+
+{href ? (
+  <a 
+    href={href} 
+    class={combinedClasses} 
+    target={target}
+    rel={target === '_blank' ? "noopener noreferrer" : undefined}
+    aria-label={ariaLabel}
+  >
+    <slot />
+  </a>
+) : (
+  <button 
+    class={combinedClasses}
+    aria-label={ariaLabel}
+  >
+    <slot />
+  </button>
+)}

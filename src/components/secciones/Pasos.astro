@@ -1,0 +1,33 @@
+---
+import ElementoPaso from "../ui/ElementoPaso.astro";
+---
+
+<section id="comoempezar" class="py-20 scroll-mt-20" aria-labelledby="steps-title">
+  <div class="max-w-3xl mx-auto bg-gray-900 border border-gray-800 rounded-3xl p-6 md:p-12">
+    <div class="mb-10">
+      <h2 id="steps-title" class="font-display text-3xl md:text-4xl font-bold mb-3">Cómo Empezar</h2>
+      <p class="text-gray-300 text-lg">Solo necesitas 3 pasos para poner tu música favorita</p>
+    </div>
+
+    <ol class="flex flex-col gap-8">
+      <ElementoPaso 
+        number="1"
+        title="Invita al Bot"
+        description="Añade RitmosBot a tu servidor usando el botón de invitación y otórgale los permisos básicos que necesita para funcionar."
+      />
+
+      <ElementoPaso 
+        number="2"
+        title="Entra a un canal de voz"
+        description="Únete a cualquier canal de voz de tu servidor y escribe <span class='bg-gray-800 text-violet-300 font-mono px-2 py-0.5 rounded text-sm select-all'>/play</span> en un canal de texto junto con el enlace o nombre de tu canción."
+      />
+
+      <ElementoPaso 
+        number="3"
+        title="¡Disfruta!"
+        description="El bot se unirá automáticamente a tu canal y empezará a reproducir la música con la mejor calidad."
+        isLast={true}
+      />
+    </ol>
+  </div>
+</section>

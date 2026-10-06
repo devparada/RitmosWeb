@@ -1,8 +1,18 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Plantilla from '../layouts/Plantilla.astro';
+import Cabecera from '../components/secciones/Cabecera.astro';
+import Portada from '../components/secciones/Portada.astro';
+import Caracteristicas from '../components/secciones/Caracteristicas.astro';
+import Pasos from '../components/secciones/Pasos.astro';
 ---
 
-<Layout titulo="Inicio | RitmosWeb">
-	<Welcome />
-</Layout>
+<Plantilla titulo="RitmosWeb | Tu bot de música para Discord" descripcion="RitmosBot es un bot de música para Discord fácil de usar, con comandos simples y soporte para playlists.">
+	<Cabecera />
+	<main class="grow">
+		<Portada />
+		<div class="max-w-6xl mx-auto px-4 md:px-6 pb-20 mt-10">
+			<Caracteristicas />
+			<Pasos />
+		</div>
+	</main>
+</Plantilla>

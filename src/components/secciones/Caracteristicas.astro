@@ -1,0 +1,39 @@
+---
+import TarjetaCaracteristica from "../ui/TarjetaCaracteristica.astro";
+import IconoCalidad from "../../assets/calidad.svg?raw";
+import IconoPlaylist from "../../assets/playlist.svg?raw";
+import IconoInteractivo from "../../assets/interactivo.svg?raw";
+---
+
+<section id="funciones" class="py-20 scroll-mt-20" aria-labelledby="features-title">
+  <div class="mb-12 px-4 max-w-2xl">
+    <h2 id="features-title" class="font-display text-3xl md:text-4xl font-bold mb-3">Lo que puedes hacer</h2>
+    <p class="text-gray-300 text-lg">
+      No tiene mil funciones complicadas, pero las que tiene las hace extremadamente bien y con la mejor calidad.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+    <TarjetaCaracteristica
+      wide={true}
+      title="Música de Calidad"
+      description="Reproduce música desde YouTube, Spotify o archivos locales con la mejor calidad de audio posible gracias a Lavalink."
+    >
+      <span class="block w-7 h-7 [&>svg]:w-7 [&>svg]:h-7" set:html={IconoCalidad} />
+    </TarjetaCaracteristica>
+
+    <TarjetaCaracteristica
+      title="Playlists Personalizadas"
+      description="Crea, edita y reproduce tus propias playlists para tener tu música favorita siempre a mano."
+    >
+      <span class="block w-7 h-7 [&>svg]:w-7 [&>svg]:h-7" set:html={IconoPlaylist} />
+    </TarjetaCaracteristica>
+
+    <TarjetaCaracteristica
+      title="Mensajes Interactivos"
+      description="Mensajes embed bien diseñados para ver qué canción suena, la cola actual y notificaciones limpias."
+    >
+      <span class="block w-7 h-7 [&>svg]:w-7 [&>svg]:h-7" set:html={IconoInteractivo} />
+    </TarjetaCaracteristica>
+  </div>
+</section>

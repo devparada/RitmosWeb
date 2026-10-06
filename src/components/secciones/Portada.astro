@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import Boton from "../ui/Boton.astro";
+import IconoFlechaDerecha from "../../assets/flecha-derecha.svg?raw";
+import IconoListaComandos from "../../assets/comandos.svg?raw";
+
+const enlaceDiscord = import.meta.env.PUBLIC_DISCORD_LINK;
+---
+
+<section class="min-h-[70vh] flex items-center px-4 relative overflow-hidden" aria-labelledby="hero-title">
+  <div class="max-w-6xl mx-auto w-full grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-12 md:gap-16 items-center py-16">
+    <div class="animate-fade-in flex flex-col items-start max-w-2xl">
+      <Image
+        src="/favicon.png"
+        alt="Icono del bot RitmosBot"
+        width="96"
+        height="96"
+        loading="eager"
+        class="mb-6"
+      />
+
+      <h1 id="hero-title" class="font-display font-extrabold text-5xl md:text-7xl tracking-tight mb-6 text-white">
+        RitmosBot
+      </h1>
+
+      <p class="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed">
+        Un bot de música para Discord hecho con ganas. Lo hosteo desde mi
+        casa, así que puede que a veces tarde un poco, pero funciona y es
+        <span class="text-violet-400 font-semibold"> 100% gratis</span>.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+        <Boton
+          href={enlaceDiscord}
+          variant="primary"
+          target="_blank"
+          ariaLabel="Añadir RitmosBot a tu servidor"
+        >
+          <span class="block w-6 h-6 [&>svg]:w-6 [&>svg]:h-6" set:html={IconoFlechaDerecha} aria-hidden="true" />
+          Añadir a tu servidor
+        </Boton>
+
+        <Boton
+          href="/comandos"
+          variant="secondary"
+          ariaLabel="Ver lista de comandos del bot"
+        >
+          <span class="block w-5 h-5 [&>svg]:w-5 [&>svg]:h-5" set:html={IconoListaComandos} aria-hidden="true" />
+          Ver comandos
+        </Boton>
+      </div>
+    </div>
+
+    <div class="hidden md:flex justify-center" aria-hidden="true">
+      <svg width="320" height="200" viewBox="0 0 320 200" fill="none" class="text-violet-500/70">
+        <!-- Barras del ecualizador: la del medio más alta, asimétricas a los lados -->
+        <rect x="20"  y="90"  width="20" height="70"  rx="6" class="fill-violet-600/25" />
+        <rect x="56"  y="60"  width="20" height="100" rx="6" class="fill-violet-600/40" />
+        <rect x="92"  y="30"  width="20" height="130" rx="6" class="fill-violet-500" />
+        <rect x="128" y="55"  width="20" height="105" rx="6" class="fill-violet-600/60" />
+        <rect x="164" y="10"  width="20" height="150" rx="6" class="fill-violet-400" />
+        <rect x="200" y="45"  width="20" height="115" rx="6" class="fill-violet-600/60" />
+        <rect x="236" y="75"  width="20" height="85"  rx="6" class="fill-violet-600/40" />
+        <rect x="272" y="100" width="20" height="60"  rx="6" class="fill-violet-600/25" />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<div class="w-full max-w-4xl mx-auto h-px bg-linear-to-r from-transparent via-gray-800 to-transparent" aria-hidden="true"></div>

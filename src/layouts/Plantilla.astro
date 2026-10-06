@@ -1,0 +1,39 @@
+---
+import Footer from "../components/secciones/Footer.astro";
+import "../styles/global.css";
+
+interface Props {
+  titulo?: string;
+  descripcion?: string;
+}
+
+const {
+  titulo = "RitmosWeb | Bot de Música para Discord",
+  descripcion = "RitmosBot es un bot de música para Discord fácil de usar, con comandos simples y soporte para playlists.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={descripcion} />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={new URL('/favicon.png', Astro.site)} />
+
+    <link
+      rel="canonical"
+      href={new URL(Astro.url.pathname, Astro.site).href}
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+
+    <title>{titulo}</title>
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-950 text-gray-100">
+    <slot />
+    <Footer />
+  </body>
+</html>
