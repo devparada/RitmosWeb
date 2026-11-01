@@ -1,5 +1,7 @@
 allowBuilds:
   esbuild: false
 minimumReleaseAge: 1440 # 24 horas
+overrides:
+  undici: 8.12.3
 packages:
   - .
