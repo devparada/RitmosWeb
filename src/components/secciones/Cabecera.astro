@@ -1,7 +1,7 @@
 ---
 import Boton from '../ui/Boton.astro';
-import IconoMenuAbrir from '../../assets/menu-abrir.svg';
-import IconoMenuCerrar from '../../assets/menu-cerrar.svg';
+import IconoMenuAbrir from '../../assets/menu-abrir.svg?raw';
+import IconoMenuCerrar from '../../assets/menu-cerrar.svg?raw';
 
 const enlaceDiscord = import.meta.env.PUBLIC_DISCORD_LINK;
 ---
@@ -41,13 +41,13 @@ const enlaceDiscord = import.meta.env.PUBLIC_DISCORD_LINK;
       aria-label="Abrir menú de navegación"
       aria-controls="mobile-menu"
     >
-      <img id="menu-icon-open" src={IconoMenuAbrir.src} alt="" class="w-7 h-7" />
-      <img id="menu-icon-close" src={IconoMenuCerrar.src} alt="" class="w-7 h-7 hidden" />
+      <span id="menu-icon-open" class="[&>svg]:block [&>svg]:w-7 [&>svg]:h-7" aria-hidden="true" set:html={IconoMenuAbrir}></span>
+      <span id="menu-icon-close" class="hidden [&>svg]:block [&>svg]:w-7 [&>svg]:h-7" aria-hidden="true" set:html={IconoMenuCerrar}></span>
     </button>
   </div>
 
   <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800 bg-gray-900/95 backdrop-blur-md absolute w-full" aria-hidden="true">
-    <nav class="flex flex-col px-4 py-6 gap-6 text-center font-medium">
+    <nav aria-label="Navegación móvil" class="flex flex-col px-4 py-6 gap-6 text-center font-medium">
       <a href="/#funciones" class="mobile-link text-gray-300 hover:text-white p-2">Funciones</a>
       <a href="/comandos" class="mobile-link text-gray-300 hover:text-white p-2">Comandos</a>
       <a href="/#comoempezar" class="mobile-link text-gray-300 hover:text-white p-2">Cómo empezar</a>
@@ -72,23 +72,38 @@ const enlaceDiscord = import.meta.env.PUBLIC_DISCORD_LINK;
   const links = document.querySelectorAll('.mobile-link');
 
   if(btn && menu) {
+    const openMenu = () => {
+      btn.setAttribute('aria-expanded', 'true');
+      menu.classList.remove('hidden');
+      menu.setAttribute('aria-hidden', 'false');
+      iconOpen?.classList.add('hidden');
+      iconClose?.classList.remove('hidden');
+      const firstLink = menu.querySelector('a');
+      if(firstLink) firstLink.focus();
+    };
+
+    const closeMenu = ({ returnFocus = false } = {}) => {
+      btn.setAttribute('aria-expanded', 'false');
+      menu.classList.add('hidden');
+      menu.setAttribute('aria-hidden', 'true');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      if(returnFocus) btn.focus();
+    };
+
     btn.addEventListener('click', () => {
-      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!isExpanded));
-      menu.classList.toggle('hidden');
-      menu.setAttribute('aria-hidden', String(isExpanded));
-      iconOpen?.classList.toggle('hidden');
-      iconClose?.classList.toggle('hidden');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      if(isOpen) closeMenu(); else openMenu();
     });
 
     links.forEach(link => {
-      link.addEventListener('click', () => {
-        btn.setAttribute('aria-expanded', 'false');
-        menu.classList.add('hidden');
-        menu.setAttribute('aria-hidden', 'true');
-        iconOpen?.classList.remove('hidden');
-        iconClose?.classList.add('hidden');
-      });
+      link.addEventListener('click', () => closeMenu());
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if(event.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+        closeMenu({ returnFocus: true });
+      }
     });
   }
 </script>
