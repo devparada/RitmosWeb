@@ -2,6 +2,7 @@
 interface Props {
   href?: string;
   variant?: 'primary' | 'secondary';
+  size?: 'md' | 'sm';
   class?: string;
   target?: string;
   ariaLabel?: string;
@@ -10,24 +11,36 @@ interface Props {
 const { 
   href, 
   variant = 'primary', 
+  size = 'md',
   class: className = '', 
   target,
   ariaLabel 
 } = Astro.props;
 
-const baseStyles = "inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold text-lg transition-[background-color,border-color,box-shadow] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950";
+// Solo se enlaza a URLs http(s), rutas internas o anclas: el href puede venir
+// de variables de entorno (p. ej. PUBLIC_DISCORD_LINK) y así nada externo
+// acaba en un href con esquema peligroso (javascript:, data:, ...).
+const safeHref =
+  href && /^(https?:\/\/|[/#])/.test(href) ? href : undefined;
+
+const baseStyles = "inline-flex items-center justify-center gap-2 rounded-xl font-bold transition-[background-color,border-color,box-shadow] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-950";
+
+const sizes = {
+  md: "px-8 py-4 text-lg",
+  sm: "px-5 py-2.5 text-sm"
+};
 
 const variants = {
   primary: "bg-violet-600 hover:bg-violet-500 text-white shadow-[0_0_20px_rgba(139,92,246,0.25)] focus-visible:ring-violet-400",
   secondary: "bg-gray-900 border border-gray-700 hover:border-gray-500 hover:bg-gray-800 text-white focus-visible:ring-violet-500"
 };
 
-const combinedClasses = `${baseStyles} ${variants[variant]} ${className}`;
+const combinedClasses = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`;
 ---
 
-{href ? (
+{safeHref ? (
   <a 
-    href={href} 
+    href={safeHref} 
     class={combinedClasses} 
     target={target}
     rel={target === '_blank' ? "noopener noreferrer" : undefined}
