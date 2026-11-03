@@ -1,0 +1,54 @@
+---
+import PlantillaLegal from "../layouts/PlantillaLegal.astro";
+
+const email = import.meta.env.PUBLIC_CONTACT_EMAIL;
+---
+
+<PlantillaLegal titulo="Política de Privacidad">
+  <h1>Política de Privacidad</h1>
+  <p><strong>Última actualización:</strong> 3 de noviembre de 2026</p>
+
+  <p>RitmosBot es un bot de música para Discord de código abierto (licencia GPL-3.0), desarrollado por <strong>devparada</strong> ("nosotros"). Esta política explica qué datos tratamos y para qué, y se aplica a la <strong>instancia oficial</strong> del bot, alojada por el propio desarrollador.</p>
+
+  <p><strong>Responsable del tratamiento y contacto:</strong> devparada — {email}</p>
+
+  <h2>1. Si alojas tu propia instancia</h2>
+  <p>Como el código es abierto, cualquiera puede desplegar su propia copia de RitmosBot. Si usas una instancia que <strong>no</strong> es la oficial, el responsable del tratamiento es quien la aloja, no devparada. Esta política no se aplica a esas instancias: consulta a sus administradores. No tenemos acceso a los datos que gestionan.</p>
+
+  <h2>2. Qué datos tratamos y para qué</h2>
+  <p>RitmosBot solo almacena lo mínimo para funcionar: las <strong>playlists que tú creas</strong>. No guardamos registros de actividad ni métricas de uso.</p>
+  <ul>
+    <li><strong>Playlists</strong>: las canciones que guardas, en forma de URLs, junto con los identificadores de Discord necesarios para asociarlas a tu usuario o servidor.</li>
+    <li><strong>Comandos y audio</strong>: cuando reproduces algo, el enlace o el archivo que envías se procesa en el momento para servir el audio. Los archivos adjuntos se usan de forma temporal y no se conservan. No almacenamos el audio de las canciones ni grabamos conversaciones de voz.</li>
+  </ul>
+  <p>La base legal es el servicio que solicitas al usar el bot y tu consentimiento al crear una playlist. No usamos tus datos para publicidad ni los vendemos.</p>
+
+  <h2>3. Conservación</h2>
+  <p>Las playlists se conservan hasta que tú las elimines. Como no almacenamos nada más, no hay otros plazos que aplicar. Puedes borrar tus playlists con los comandos del bot o solicitar su eliminación en cualquier momento.</p>
+
+  <h2>4. Con quién se comparten</h2>
+  <p>No vendemos ni cedemos tus datos. Intervienen:</p>
+  <ul>
+    <li><strong>Discord</strong>, plataforma sobre la que funciona el bot; actúa como responsable independiente y tiene su propia política de privacidad.</li>
+    <li><strong>YouTube y Spotify</strong>, a los que se consulta al resolver enlaces o búsquedas.</li>
+    <li><strong>Lavalink</strong>, el servidor de audio autoalojado que procesa la reproducción; no es un tercero externo ni recibe tus datos con otra finalidad.</li>
+    <li><strong>Autoridades</strong>, solo cuando exista una obligación legal.</li>
+  </ul>
+  <p>Estos terceros pueden tratar datos fuera del Espacio Económico Europeo; en tal caso se amparan en sus propias garantías (por ejemplo, cláusulas contractuales tipo).</p>
+
+  <h2>5. Tus derechos</h2>
+  <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, portabilidad, limitación y oposición escribiendo a <strong>{email}</strong>. También puedes reclamar ante la Agencia Española de Protección de Datos (www.aepd.es).</p>
+  <p>Si el tratamiento se basa en tu consentimiento, puedes retirarlo en cualquier momento sin que ello afecte a la licitud del tratamiento previo. Para ello basta con eliminar tus playlists o escribirnos.</p>
+
+  <h2>6. Menores</h2>
+  <p>El servicio se presta en Discord, que exige una edad mínima (13 años o la que corresponda en tu país). No está dirigido a quienes no cumplan ese requisito.</p>
+
+  <h2>7. Seguridad</h2>
+  <p>Aplicamos medidas técnicas y organizativas razonables para proteger los datos frente a accesos no autorizados o pérdida. Aun así, ningún sistema es infalible.</p>
+
+  <h2>8. Esta página web</h2>
+  <p>Esta página web es informativa y no utiliza cookies ni herramientas de analítica. No recoge datos personales por sí misma.</p>
+
+  <h2>9. Cambios</h2>
+  <p>Podemos actualizar esta política. La versión vigente, con su fecha, estará siempre disponible en esta página.</p>
+</PlantillaLegal>

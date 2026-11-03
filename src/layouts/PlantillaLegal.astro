@@ -1,0 +1,51 @@
+---
+import Footer from "../components/secciones/Footer.astro";
+import "../styles/global.css";
+
+const titulo = Astro.props.titulo ?? Astro.props.frontmatter?.title ?? "Legal | RitmosWeb";
+const descripcion = Astro.props.descripcion ?? Astro.props.frontmatter?.description ?? "Información legal de RitmosBot: términos de servicio y política de privacidad.";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={descripcion} />
+    <meta name="author" content="devparada" />
+    <meta property="og:title" content={titulo} />
+    <meta property="og:description" content={descripcion} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={new URL('/favicon.png', Astro.site)} />
+    <link
+      rel="canonical"
+      href={new URL(Astro.url.pathname, Astro.site).href}
+    />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>{titulo}</title>
+  </head>
+  <body class="min-h-screen flex flex-col bg-gray-950 text-gray-200">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-lg focus:bg-violet-600 focus:px-4 focus:py-2 focus:font-semibold focus:text-white focus:outline-none">Saltar al contenido</a>
+    <header class="border-b border-gray-800 bg-gray-950/80 backdrop-blur-md sticky top-0 z-50">
+      <div class="max-w-4xl mx-auto px-6 h-16 flex items-center justify-between">
+        <a href="/" class="flex gap-3 items-center hover:opacity-80 transition-opacity">
+          <img src="/favicon.png" alt="Logo RitmosBot" class="w-8 h-8" loading="eager" />
+          <span class="font-bold text-lg tracking-tight text-white">RitmosBot</span>
+        </a>
+      </div>
+    </header>
+    
+    <main id="main-content" class="grow max-w-4xl w-full mx-auto my-10 px-6 py-8 bg-gray-900/50 rounded-2xl border border-gray-800 shadow-xl 
+    [&>h1]:text-3xl [&>h1]:font-bold [&>h1]:font-display [&>h1]:mb-6 [&>h1]:text-white
+    [&>h2]:text-2xl [&>h2]:font-semibold [&>h2]:font-display [&>h2]:mt-8 [&>h2]:mb-4 [&>h2]:text-violet-400
+    [&>h3]:text-xl [&>h3]:font-medium [&>h3]:mt-6 [&>h3]:mb-3
+    [&>p]:text-gray-300 [&>p]:mb-4 [&>p]:leading-relaxed
+    [&>ul]:list-disc [&>ul]:pl-6 [&>ul]:mb-6 [&>ul>li]:mb-2 [&>ul>li]:text-gray-300
+    [&>strong]:text-white [&>strong]:font-semibold
+    [&>a]:text-violet-400 [&>a]:hover:text-violet-300 [&>a]:underline">
+      <slot />
+    </main>
+    
+    <Footer />
+  </body>
+</html>

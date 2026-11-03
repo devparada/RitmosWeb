@@ -1,0 +1,55 @@
+---
+import PlantillaLegal from "../layouts/PlantillaLegal.astro";
+
+const email = import.meta.env.PUBLIC_CONTACT_EMAIL;
+---
+
+<PlantillaLegal titulo="Términos de Servicio">
+  <h1>Términos de Servicio</h1>
+  <p><strong>Última actualización:</strong> 3 de noviembre de 2026</p>
+
+  <p>Bienvenido/a a <strong>RitmosBot</strong> ("el Bot"), un bot de música para Discord. Estos Términos regulan el uso de la <strong>instancia oficial</strong>, desarrollada y alojada por <strong>devparada</strong> ("nosotros"). Al usar el Bot aceptas estos Términos; si no estás de acuerdo, no lo uses.</p>
+
+  <h2>1. Descripción del servicio</h2>
+  <p>El Bot reproduce música a partir de:</p>
+  <ul>
+    <li>Enlaces de YouTube.</li>
+    <li>Enlaces o consultas de Spotify (búsqueda y metadatos).</li>
+    <li>Archivos de audio adjuntos que envíes.</li>
+  </ul>
+  <p>Ofrece además comandos, colas, playlists y notificaciones. El servicio es gratuito y se presta "tal cual", sin garantía de disponibilidad.</p>
+
+  <h2>2. Código abierto e instancias propias</h2>
+  <p>El código y la documentación se publican bajo <strong>licencia GPL-3.0</strong>, por lo que cualquiera puede usar, modificar y compartir el código; quienes lo redistribuyan deben hacerlo bajo la misma licencia. Para más detalles: <a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU GPL v3</a>.</p>
+  <p>Si usas una instancia de RitmosBot que no es la oficial, se rige por sus propios administradores y estos Términos no se aplican a esa instancia. No nos hacemos responsables de instancias gestionadas por terceros.</p>
+
+  <h2>3. Elegibilidad</h2>
+  <p>No debes usar el Bot si no tienes capacidad legal para aceptar estos Términos o si tu uso está prohibido por la ley aplicable.</p>
+
+  <h2>4. Uso permitido</h2>
+  <p>Aceptas usar el Bot conforme a la ley y a las normas de Discord, y a no:</p>
+  <ul>
+    <li>Realizar scraping, minería de datos o exfiltración de información de usuarios.</li>
+    <li>Intentar evadir controles, explotar vulnerabilidades o realizar ingeniería inversa.</li>
+    <li>Enviar spam o contenido ilegal, difamatorio, pornográfico o que infrinja derechos de terceros.</li>
+    <li>Reproducir contenido que vulnere la propiedad intelectual de terceros. Eres responsable del contenido que pones a sonar.</li>
+  </ul>
+
+  <h2>5. Permisos y responsabilidad administrativa</h2>
+  <p>El propietario o administrador del servidor que añada el Bot es responsable de su configuración de permisos. El desarrollador no se hace responsable de pérdidas derivadas de una configuración incorrecta.</p>
+
+  <h2>6. Propiedad intelectual y servicios de terceros</h2>
+  <p>El código del Bot y su documentación se publican bajo licencia GPL-3.0. La música y demás contenido pertenecen a sus titulares; el Bot no aloja ni redistribuye audio. El uso de Discord, YouTube y Spotify se rige por sus propios términos y condiciones.</p>
+
+  <h2>7. Limitación de responsabilidad</h2>
+  <p>En la máxima medida permitida por la ley aplicable, devparada no será responsable por daños indirectos, lucro cesante, pérdida de datos o cualquier daño derivado del uso o de la imposibilidad de uso del Bot. Nada en estos Términos limita los derechos que la ley reconozca de forma imperativa a las personas consumidoras. Esta limitación se entiende sin perjuicio de las condiciones de la licencia GPL-3.0 bajo la que se distribuye el código.</p>
+
+  <h2>8. Cambios y terminación</h2>
+  <p>Nos reservamos el derecho a modificar, suspender o retirar partes del servicio en cualquier momento. También podremos suspender o retirar el acceso al Bot a quien incumpla estos Términos o las normas de Discord. Podremos actualizar estos Términos; la versión más reciente estará disponible en esta página.</p>
+
+  <h2>9. Ley aplicable y jurisdicción</h2>
+  <p>Estos Términos se rigen por las leyes de <strong>España</strong>. Cualquier controversia se someterá a los tribunales que resulten competentes conforme a la legislación aplicable, sin que ello prive a las personas consumidoras de la protección que les reconoce la ley.</p>
+
+  <h2>10. Contacto</h2>
+  <p>Si tienes dudas o necesitas asistencia sobre estos Términos, escríbenos a <strong>{email}</strong>.</p>
+</PlantillaLegal>
