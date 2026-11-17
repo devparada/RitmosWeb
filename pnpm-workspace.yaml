@@ -1,6 +1,6 @@
 allowBuilds:
   esbuild: false
+overrides:
 minimumReleaseAge: 1440 # 24 horas
-# overrides:
 packages:
   - .
